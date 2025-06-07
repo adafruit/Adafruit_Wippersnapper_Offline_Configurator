@@ -1753,6 +1753,17 @@
         "documentationUrl": "https://learn.adafruit.com/all-about-leds"
       },
       {
+        "id": "pwm_output",
+        "displayName": "PWM Output",
+        "name": "pwm_output",
+        "description": "A Pulse-Width-Modulated component with fixed frequency. Duty cycle can be set from 0-255",
+        "category": "pwm",
+        "dataTypes": [],
+        "image": "components/pwm/pwm_output/image.png",
+        "productUrl": "https://www.adafruit.com/product/301",
+        "documentationUrl": "https://learn.adafruit.com/improve-brushed-dc-motor-performance/pwm-and-brushed-dc-motors"
+      },
+      {
         "id": "rgb_led",
         "displayName": "RGB LED",
         "name": "rgb_led",
