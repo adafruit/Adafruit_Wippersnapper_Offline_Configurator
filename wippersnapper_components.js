@@ -1637,6 +1637,39 @@ window.jsonComponentsObject = {
     ],
     "i2c_output": [
       {
+        "id": "oled64x32large",
+        "displayName": "64x32 OLED (Large Font)",
+        "name": "oled64x32large",
+        "description": "Monochrome 64x32 I2C OLED Display with a larger font size. (SSD1306)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "components/i2c_output/oled64x32large/image.jpg",
+        "productUrl": "https://www.digikey.com/en/products/detail/midas-displays/MDOB064032AV-WI/18088023",
+        "documentationUrl": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/4808/MDOB064032AV-WI.pdf"
+      },
+      {
+        "id": "fthrwingoled128x64lg",
+        "displayName": "128x64 OLED'wing (Large)",
+        "name": "fthrwingoled128x64lg",
+        "description": "Monochrome 128x64 OLED featherwing display with the default font size (SH1107)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4650-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/4650",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-128x64-oled-featherwing"
+      },
+      {
+        "id": "fthrwingoled128x64",
+        "displayName": "128x64 OLED'wing (Small)",
+        "name": "fthrwingoled128x64",
+        "description": "Monochrome 128x64 OLED featherwing display with the default font size (SH1107)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4650-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/4650",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-128x64-oled-featherwing"
+      },
+      {
         "id": "quadalphanum",
         "displayName": "Quad Alphanum. Display",
         "name": "quadalphanum",
@@ -1646,6 +1679,17 @@ window.jsonComponentsObject = {
         "image": "components/i2c_output/quadalphanum/image.png",
         "productUrl": "https://www.adafruit.com/product/1911",
         "documentationUrl": "https://learn.adafruit.com/adafruit-led-backpack/0-54-alphanumeric"
+      },
+      {
+        "id": "oled64x32default",
+        "displayName": "64x32 OLED (Small Font)",
+        "name": "oled64x32default",
+        "description": "Monochrome 64x32 I2C OLED Display with the default font size. (SSD1306)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "components/i2c_output/oled64x32default/image.jpg",
+        "productUrl": "https://www.digikey.com/en/products/detail/midas-displays/MDOB064032AV-WI/18088023",
+        "documentationUrl": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/4808/MDOB064032AV-WI.pdf"
       },
       {
         "id": "7seg",
@@ -1662,7 +1706,7 @@ window.jsonComponentsObject = {
         "id": "oled128x32default",
         "displayName": "128x32 OLED (Default)",
         "name": "oled128x32default",
-        "description": "Monochrome 128x32 OLED graphic display with the default font size.",
+        "description": "Monochrome 128x32 OLED graphic display with the default font size. (SSD1306)",
         "category": "i2c_output",
         "dataTypes": [],
         "image": "components/i2c_output/oled128x32default/image.png",
@@ -1681,10 +1725,32 @@ window.jsonComponentsObject = {
         "documentationUrl": "https://learn.adafruit.com/i2c-spi-lcd-backpack"
       },
       {
+        "id": "fthrwingoled128x32lg",
+        "displayName": "128x32 OLED'wing (Large)",
+        "name": "fthrwingoled128x32lg",
+        "description": "Monochrome 128x32 OLED featherwing display with a larger font size (SSD1306)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "https://cdn-shop.adafruit.com/640x480/2900-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/2900",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-oled-featherwing"
+      },
+      {
+        "id": "fthrwingoled128x32",
+        "displayName": "128x32 OLED'wing (Small)",
+        "name": "fthrwingoled128x32",
+        "description": "Monochrome 128x32 OLED featherwing display with the default font size (SSD1306)",
+        "category": "i2c_output",
+        "dataTypes": [],
+        "image": "https://cdn-shop.adafruit.com/640x480/2900-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/2900",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-oled-featherwing"
+      },
+      {
         "id": "oled128x32large",
         "displayName": "128x32 OLED (Large Font)",
         "name": "oled128x32large",
-        "description": "Monochrome 128x32 I2C OLED Display with a larger font size",
+        "description": "Monochrome 128x32 I2C OLED Display with a larger font size (SSD1306).",
         "category": "i2c_output",
         "dataTypes": [],
         "image": "components/i2c_output/oled128x32large/image.png",
@@ -1695,7 +1761,7 @@ window.jsonComponentsObject = {
         "id": "oled128x64large",
         "displayName": "128x64 OLED (Large Font)",
         "name": "oled128x64large",
-        "description": "Monochrome 128x64 I2C OLED Display with a larger font size.",
+        "description": "Monochrome 128x64 I2C OLED Display with a larger font size (SSD1306)",
         "category": "i2c_output",
         "dataTypes": [],
         "image": "components/i2c_output/oled128x64large/image.png",
@@ -1717,7 +1783,7 @@ window.jsonComponentsObject = {
         "id": "oled128x64default",
         "displayName": "128x64 OLED (Default)",
         "name": "oled128x64default",
-        "description": "Monochrome 128x64 I2C OLED Display with the default font size.",
+        "description": "Monochrome 128x64 I2C OLED Display with the default font size (SSD1306)",
         "category": "i2c_output",
         "dataTypes": [],
         "image": "components/i2c_output/oled128x64default/image.png",
