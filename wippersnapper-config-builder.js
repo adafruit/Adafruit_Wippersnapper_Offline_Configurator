@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (boardImageElem) {
             if (board.image) {
                 if (!board.image.startsWith('http')) {
-                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/rp2040_datalogger_feather/" + board.image;
+                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/offline-mode/" + board.image;
                 } else {
                     boardImageElem.src = board.image;
                 }
