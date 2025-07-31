@@ -1315,6 +1315,8 @@ function showComponentConfigModal(component, type) {
                 </select>
             </div>
         `;
+
+        // TODO: Tyeth/Brent - Add GPS properties here if needed, or below in datatypes
     }
 
     // Data type selection
@@ -1821,6 +1823,8 @@ function updateSelectedComponentsList() {
             detailsText += `<br>Pixels: ${component.numPixels}`;
         } else if (component.componentAPI === 'uart') {
             detailsText += `<br>TX Pin: ${component.pinTx}, RX Pin: ${component.pinRx}`;
+
+            // TODO: Tyeth/Brent - Add GPS properties here if needed, or override sensorTypes
 
             // Show sensor types
             if (component.sensorTypes && component.sensorTypes.length > 0) {
