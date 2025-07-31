@@ -1675,6 +1675,11 @@ function saveModalData() {
                 }
             });
         }
+
+        // Add is_pm1006 field if it exists in the component template
+        if (componentTemplate.is_pm1006) {
+            componentConfig.is_pm1006 = componentTemplate.is_pm1006;
+        }
     }
 
     // Add component to the selected components list
