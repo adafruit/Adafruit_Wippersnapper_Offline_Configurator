@@ -157,6 +157,45 @@ def convert_components_to_json():
                         else:
                             component_info["channels"] = 4
                 
+                # Handle UART-specific properties
+                if category == "uart":
+                    device_type = component_data.get("deviceType")
+                    if device_type == "generic_input":
+                        # TODO
+                        pass
+                    elif device_type == "generic_output":
+                        # TODO
+                        pass
+                    elif device_type == "gps":
+                        # TODO
+                        pass
+                    elif device_type == "pm25aqi":
+                        # Get pm25aqi specific data
+                        pm25aqi_data = component_data
+                        if "pm25aqi" in component_data:
+                            component_info["period"] = component_data["pm25aqi"].get("period", 30000)  # Default to 30s if not specified
+                        # Extract data types
+                        print("*** PM25AQI: Extracting sensor types ***")
+                        print(f"*** PM25AQI: Keys in component_data: {list(component_data.keys())} ***")
+                        if "pm25aqi" in component_data:
+                            print(f"*** PM25AQI: Keys in pm25aqi section: {list(component_data['pm25aqi'].keys())} ***")
+                        if "pm25aqi" in pm25aqi_data and "sensor_types" in pm25aqi_data["pm25aqi"]:
+                            for meas_type in pm25aqi_data["pm25aqi"]["sensor_types"]:
+                                print(f"*** PM25AQI: Mapping sensor type {meas_type} for pm25aqi ***")
+                                if isinstance(meas_type, dict) and "sensorType" in meas_type:
+                                    component_info["dataTypes"].append({
+                                        "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
+                                        "sensorType": map_datatypes_to_offline_types(meas_type["sensorType"]) if "sensorType" in meas_type else None
+                                    })
+                                else:
+                                    component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
+                        
+                    elif device_type == "tm22xx":
+                        # TODO
+                        pass
+                    else:
+                        raise ValueError(f"Unknown deviceType {device_type} for {category}/{component_dir}")
+
                 # Look for an image file
                 image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
                 image_found = False
