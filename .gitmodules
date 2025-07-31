@@ -4,3 +4,4 @@
 [submodule "Wippersnapper_Components"]
 	path = Wippersnapper_Components
 	url = https://github.com/adafruit/Wippersnapper_Components
+	branch = offline-mode
