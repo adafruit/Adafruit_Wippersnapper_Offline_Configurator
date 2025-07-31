@@ -159,24 +159,38 @@ def convert_components_to_json():
                 
                 # Handle UART-specific properties
                 if category == "uart":
-                    device_type = component_data.get("deviceType")
-                    if device_type == "generic_input":
+                    # Required properties
+                    component_info["device_type"] = component_data.get("deviceType")
+                    component_info["deviceId"] = component_data.get("deviceId")
+                    # Specific device_type properties
+                    if component_info["device_type"] == "generic_input":
+                        # Parse generic input properties
+                        component_info["period"] = component_data["generic_input"].get("period", 30000)  # Default to 30s if not specified
+                        # Extract data types
+                        if "generic_input" in component_data and "sensor_types" in component_data["generic_input"]:
+                            for meas_type in component_data["generic_input"]["sensor_types"]:
+                                if isinstance(meas_type, dict) and "sensorType" in meas_type:
+                                    component_info["dataTypes"].append({
+                                        "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
+                                        "sensorType": map_datatypes_to_offline_types(meas_type["sensorType"]) if "sensorType" in meas_type else None
+                                    })
+                                else:
+                                    component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
+                        
+                    elif component_info["device_type"] == "generic_output":
                         # TODO
                         pass
-                    elif device_type == "generic_output":
+                    elif component_info["device_type"] == "gps":
                         # TODO
                         pass
-                    elif device_type == "gps":
-                        # TODO
-                        pass
-                    elif device_type == "pm25aqi":
-                        # Get pm25aqi specific data
-                        pm25aqi_data = component_data
+                    elif component_info["device_type"] == "pm25aqi":
+                        # Parse PM2.5 AQI properties
                         if "pm25aqi" in component_data:
                             component_info["period"] = component_data["pm25aqi"].get("period", 30000)  # Default to 30s if not specified
                             if component_data["pm25aqi"].get("is_pm1006", False):
                                 component_info["is_pm1006"] = True
                         # Extract data types
+                        pm25aqi_data = component_data
                         if "pm25aqi" in pm25aqi_data and "sensor_types" in pm25aqi_data["pm25aqi"]:
                             for meas_type in pm25aqi_data["pm25aqi"]["sensor_types"]:
                                 if isinstance(meas_type, dict) and "sensorType" in meas_type:

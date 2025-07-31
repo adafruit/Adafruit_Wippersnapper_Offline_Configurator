@@ -1650,19 +1650,19 @@ function saveModalData() {
         // Mark pin as used
         appState.usedPins.add(parseInt(pin));
     } else if (componentType === 'uart') {
-        const txPin = document.getElementById('modal-uart-tx').value;
-        const rxPin = document.getElementById('modal-uart-rx').value;
-        if (!rxPin) {
+        const pinTx = document.getElementById('modal-uart-tx').value;
+        const pinRx = document.getElementById('modal-uart-rx').value;
+        if (!pinRx) {
             validationError = true;
             alert('Please select a RX pin for the component.');
             return false;
         }
-        if (!!txPin) {
-            componentConfig.txPin = `D${txPin}`;
-            appState.usedPins.add(parseInt(txPin));
+        if (!!pinTx) {
+            componentConfig.pinTx = `D${pinTx}`;
+            appState.usedPins.add(parseInt(pinTx));
         }
-        componentConfig.rxPin = `D${rxPin}`;
-        appState.usedPins.add(parseInt(rxPin));
+        componentConfig.pinRx = `D${pinRx}`;
+        appState.usedPins.add(parseInt(pinRx));
 
         // Add data types
         const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
@@ -1676,9 +1676,15 @@ function saveModalData() {
             });
         }
 
+        // UART-Specific //
         // Add is_pm1006 field if it exists in the component template
-        if (componentTemplate.is_pm1006) {
-            componentConfig.is_pm1006 = componentTemplate.is_pm1006;
+        if (componentTemplate.device_type) {
+            componentConfig.device_type = componentTemplate.device_type;
+        }
+
+        // Add deviceId field if it exists in the component template
+        if (componentTemplate.deviceId) {
+            componentConfig.deviceId = componentTemplate.deviceId;
         }
     }
 
@@ -1763,7 +1769,7 @@ function updateSelectedComponentsList() {
             detailsText += `<br>Pin: ${component.pinName}`;
             detailsText += `<br>Pixels: ${component.numPixels}`;
         } else if (component.componentAPI === 'uart') {
-            detailsText += `<br>TX Pin: ${component.txPin}, RX Pin: ${component.rxPin}`;
+            detailsText += `<br>TX Pin: ${component.pinTx}, RX Pin: ${component.pinRx}`;
 
             // Show sensor types
             if (component.sensorTypes && component.sensorTypes.length > 0) {
@@ -1815,14 +1821,14 @@ function removeComponent(instanceId) {
         appState.usedPins.delete(pinNumber);
     }
 
-    if (component.txPin) {
-        const txPinNumber = parseInt(component.txPin.replace('D', ''));
-        appState.usedPins.delete(txPinNumber);
+    if (component.pinTx) {
+        const pinTxNumber = parseInt(component.pinTx.replace('D', ''));
+        appState.usedPins.delete(pinTxNumber);
     }
 
-    if (component.rxPin) {
-        const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
-        appState.usedPins.delete(rxPinNumber);
+    if (component.pinRx) {
+        const pinRxNumber = parseInt(component.pinRx.replace('D', ''));
+        appState.usedPins.delete(pinRxNumber);
     }
 
     // Check if this is a multiplexer and remove it from the multiplexers list
@@ -2295,14 +2301,14 @@ function importConfigObject(config) {
                         appState.usedPins.add(pinNumber);
                     }
 
-                    if (component.txPin) {
-                        const txPinNumber = parseInt(component.txPin.replace('D', ''));
-                        appState.usedPins.add(txPinNumber);
+                    if (component.pinTx) {
+                        const pinTxNumber = parseInt(component.pinTx.replace('D', ''));
+                        appState.usedPins.add(pinTxNumber);
                     }
 
-                    if (component.rxPin) {
-                        const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
-                        appState.usedPins.add(rxPinNumber);
+                    if (component.pinRx) {
+                        const pinRxNumber = parseInt(component.pinRx.replace('D', ''));
+                        appState.usedPins.add(pinRxNumber);
                     }
 
                     // Handle I2C bus pins
