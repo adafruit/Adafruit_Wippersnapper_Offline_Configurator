@@ -176,13 +176,12 @@ def convert_components_to_json():
                                     })
                                 else:
                                     component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
-                        
-                    elif component_info["device_type"] == "generic_output":
-                        # TODO
-                        pass
                     elif component_info["device_type"] == "gps":
-                        # TODO
-                        pass
+                        component_info["period"] = component_data.get("period", 30000)  # Default to 30s if not specified
+                        if "commands_ubxes" in component_data:
+                            component_info["commands_ubxes"] = component_data["commands_ubxes"]
+                        if "commands_pmtks" in component_data:
+                            component_info["commands_pmtks"] = component_data["commands_pmtks"]
                     elif component_info["device_type"] == "pm25aqi":
                         # Parse PM2.5 AQI properties
                         if "pm25aqi" in component_data:

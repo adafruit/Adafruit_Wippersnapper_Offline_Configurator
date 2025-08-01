@@ -1008,7 +1008,7 @@ function createComponentCard(component, type) {
     if (component.image) {
         const img = document.createElement('img');
         if (!component.image.startsWith('http')) {
-            img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/main/" + component.image;
+            img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/offline-mode/" + component.image;
         } else {
             img.src = component.image;
         }
@@ -1685,6 +1685,16 @@ function saveModalData() {
         // Add deviceId field if it exists in the component template
         if (componentTemplate.deviceId) {
             componentConfig.deviceId = componentTemplate.deviceId;
+        }
+
+        // Add UBX commands if they exist in the component template
+        if (componentTemplate.commands_ubxes) {
+            componentConfig.commands_ubxes = componentTemplate.commands_ubxes;
+        }
+
+        // Add PMTK commands if they exist in the component template
+        if (componentTemplate.commands_pmtks) {
+            componentConfig.commands_pmtks = componentTemplate.commands_pmtks;
         }
     }
 
