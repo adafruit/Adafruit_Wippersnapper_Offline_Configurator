@@ -1536,6 +1536,11 @@ function saveModalData() {
         componentConfig.i2cDeviceName = componentId;
         componentConfig.i2cDeviceAddress = i2cAddress;
 
+        // Add deviceId field if it exists in the component template
+        if (componentTemplate.isGps) {
+            componentConfig.isGps = componentTemplate.isGps;
+        }
+
         // Handle multiplexer channel if selected
         if (i2cBus.startsWith('mux-')) {
             const [_, muxId, __, channelNum] = i2cBus.split('-');
@@ -1578,22 +1583,6 @@ function saveModalData() {
             // Remove any components using this multiplexer
             appState.selectedComponents = appState.selectedComponents.filter(c =>
                 !(c.i2cMuxAddress && c.i2cMuxAddress === componentConfig.i2cDeviceAddress));
-        } else {
-            // Add data types for non-multiplexer components
-            const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
-            if (dataTypeCheckboxes.length > 0) {
-                componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
-                    try {
-                        return { type: JSON.parse(checkbox.value) };
-                    } catch (e) {
-                        return { type: checkbox.value };
-                    }
-                });
-            } else {
-                validationError = true;
-                alert('Please select at least one data type for the I2C component.');
-                return false;
-            }
         }
     } else if (componentType === 'ds18x20') {
         const pin = document.getElementById('modal-pin-select').value;
@@ -1677,7 +1666,7 @@ function saveModalData() {
         }
 
         // UART-Specific //
-        // Add is_pm1006 field if it exists in the component template
+        // Add device_type field if it exists in the component template
         if (componentTemplate.device_type) {
             componentConfig.device_type = componentTemplate.device_type;
         }

@@ -156,7 +156,16 @@ def convert_components_to_json():
                             component_info["channels"] = 8
                         else:
                             component_info["channels"] = 4
-                
+
+                    # Special handling for GPS over I2C
+                    if component_data.get("isGps", False):
+                            print("**** GPS over I2C detected for component: " + component_dir)
+                            component_info["isGps"] = True
+                    if "commands_ubxes" in component_data:
+                        component_info["commands_ubxes"] = component_data["commands_ubxes"]
+                    if "commands_pmtks" in component_data:
+                        component_info["commands_pmtks"] = component_data["commands_pmtks"]
+
                 # Handle UART-specific properties
                 if category == "uart":
                     # Required properties
