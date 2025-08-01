@@ -6,10 +6,3 @@ __pycache__/
 bin/
 lib/
 pyvenv.cfg
-
-Wippersnapper_Boards/
-Wippersnapper_Components/
-wippersnapper_boards.js
-wippersnapper_boards.json
-wippersnapper_components.js
-wippersnapper_components.json
