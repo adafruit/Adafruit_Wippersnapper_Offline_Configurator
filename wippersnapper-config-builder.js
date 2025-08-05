@@ -1676,15 +1676,32 @@ function saveModalData() {
             componentConfig.deviceId = componentTemplate.deviceId;
         }
 
+        // Add period if it exists in the component template
+        if (componentTemplate.gps && componentTemplate.gps.period) {
+            componentConfig.gps.period = componentTemplate.gps.period;
+        }
+
         // Add UBX commands if they exist in the component template
-        if (componentTemplate.commands_ubxes) {
-            componentConfig.commands_ubxes = componentTemplate.commands_ubxes;
+        if (componentTemplate.gps && componentTemplate.gps.commands_ubxes) {
+            componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
         }
 
         // Add PMTK commands if they exist in the component template
-        if (componentTemplate.commands_pmtks) {
-            componentConfig.commands_pmtks = componentTemplate.commands_pmtks;
+        if (componentTemplate.gps && componentTemplate.gps.commands_pmtks) {
+            componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
         }
+
+
+        // Add AQI period if it exists in the component template
+        if (componentTemplate.pm25aqi && componentTemplate.pm25aqi.period) {
+            componentConfig.pm25aqi.period = componentTemplate.pm25aqi.period;
+        }
+
+        // Add generic_input field if it exists in the component template
+        if (componentTemplate.generic_input && componentTemplate.generic_input.period) {
+            componentConfig.generic_input.period = componentTemplate.generic_input.period;
+        }
+
     }
 
     // Add component to the selected components list
