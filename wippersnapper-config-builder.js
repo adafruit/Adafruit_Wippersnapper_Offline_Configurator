@@ -1536,7 +1536,7 @@ function saveModalData() {
         componentConfig.i2cDeviceName = componentId;
         componentConfig.i2cDeviceAddress = i2cAddress;
 
-        // Add deviceId field if it exists in the component template
+        // Add isGps field if it exists in the component template
         if (componentTemplate.isGps) {
             componentConfig.isGps = componentTemplate.isGps;
         }
@@ -1678,27 +1678,42 @@ function saveModalData() {
 
         // Add period if it exists in the component template
         if (componentTemplate.gps && componentTemplate.gps.period) {
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
             componentConfig.gps.period = componentTemplate.gps.period;
         }
 
         // Add UBX commands if they exist in the component template
         if (componentTemplate.gps && componentTemplate.gps.commands_ubxes) {
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
             componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
         }
 
         // Add PMTK commands if they exist in the component template
         if (componentTemplate.gps && componentTemplate.gps.commands_pmtks) {
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
             componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
         }
 
 
         // Add AQI period if it exists in the component template
         if (componentTemplate.pm25aqi && componentTemplate.pm25aqi.period) {
+            if (!componentConfig.pm25aqi) {
+                componentConfig.pm25aqi = {};
+            }
             componentConfig.pm25aqi.period = componentTemplate.pm25aqi.period;
         }
 
         // Add generic_input field if it exists in the component template
         if (componentTemplate.generic_input && componentTemplate.generic_input.period) {
+            if (!componentConfig.generic_input) {
+                componentConfig.generic_input = {};
+            }
             componentConfig.generic_input.period = componentTemplate.generic_input.period;
         }
 
