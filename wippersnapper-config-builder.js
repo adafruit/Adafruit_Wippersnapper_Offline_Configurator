@@ -130,7 +130,7 @@ const companionBoardConfigs = {
     'seeed-xiao-ssd1306-expansion-base': {
         rtc: 'PCF8563',
         sdCardCS: 'D2',
-        extras: 'Display',
+        extras: 'SD Card, Display, Piezo Speaker, LiPo connector',
         productURL: 'https://www.seeedstudio.com/Seeeduino-XIAO-Expansion-board-p-4746.html',
         documentationURL: 'https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/',
         image: 'https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/Update_pic/zheng1.jpg'
