@@ -1528,9 +1528,9 @@ function saveModalData() {
     
     // Only add period for components that don't have their own period objects
     if (!componentTemplate.isGps && 
-        componentTemplate.device_type !== 'gps' && 
-        componentTemplate.device_type !== 'pm25aqi' && 
-        componentTemplate.device_type !== 'generic_input') {
+        componentTemplate.deviceType !== 'gps' && 
+        componentTemplate.deviceType !== 'pm25aqi' && 
+        componentTemplate.deviceType !== 'generic_input') {
         componentConfig.period = period;
     }
     let validationError = false; // future use
@@ -1688,17 +1688,17 @@ function saveModalData() {
         if (dataTypeCheckboxes.length > 0) {
             componentConfig.sensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
                 try {
-                    return JSON.parse(checkbox.value);
+                    return { type: JSON.parse(checkbox.value) };
                 } catch (e) {
-                    return checkbox.value;
+                    return { type: checkbox.value };
                 }
             });
         }
 
         // UART-Specific //
-        // Add device_type field if it exists in the component template
-        if (componentTemplate.device_type) {
-            componentConfig.device_type = componentTemplate.device_type;
+        // Add deviceType field if it exists in the component template
+        if (componentTemplate.deviceType) {
+            componentConfig.deviceType = componentTemplate.deviceType;
         }
 
         // Add deviceId field if it exists in the component template
@@ -1707,7 +1707,7 @@ function saveModalData() {
         }
 
         // Add GPS fields if this is a GPS component
-        if (componentTemplate.device_type === 'gps') {
+        if (componentTemplate.deviceType === 'gps') {
             if (!componentConfig.gps) {
                 componentConfig.gps = {};
             }
@@ -1715,7 +1715,7 @@ function saveModalData() {
         }
 
         // Add PM25AQI fields if this is a PM25AQI component
-        if (componentTemplate.device_type === 'pm25aqi') {
+        if (componentTemplate.deviceType === 'pm25aqi') {
             if (!componentConfig.pm25aqi) {
                 componentConfig.pm25aqi = {};
             }
@@ -1723,7 +1723,7 @@ function saveModalData() {
         }
 
         // Add generic_input fields if this is a generic_input component
-        if (componentTemplate.device_type === 'generic_input') {
+        if (componentTemplate.deviceType === 'generic_input') {
             if (!componentConfig.generic_input) {
                 componentConfig.generic_input = {};
             }

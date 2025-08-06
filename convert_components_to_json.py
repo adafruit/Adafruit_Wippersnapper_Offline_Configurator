@@ -169,10 +169,10 @@ def convert_components_to_json():
                 # Handle UART-specific properties
                 if category == "uart":
                     # Required properties
-                    component_info["device_type"] = component_data.get("deviceType")
+                    component_info["deviceType"] = component_data.get("deviceType")
                     component_info["deviceId"] = component_data.get("deviceId")
-                    # Specific device_type properties
-                    if component_info["device_type"] == "generic_input":
+                    # Specific deviceType properties
+                    if component_info["deviceType"] == "generic_input":
                         component_info["generic_input"] = {}
                         generic_input_data = component_data.get("generic_input", {})
                         component_info["generic_input"]["period"] = generic_input_data.get("period", 30000)
@@ -186,7 +186,7 @@ def convert_components_to_json():
                                     })
                                 else:
                                     component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
-                    elif component_info["device_type"] == "gps":
+                    elif component_info["deviceType"] == "gps":
                         component_info["gps"] = {}
                         gps_data = component_data.get("gps", {})
                         component_info["gps"]["period"] = gps_data.get("period", 30000)
@@ -194,7 +194,7 @@ def convert_components_to_json():
                             component_info["gps"]["commands_ubxes"] = gps_data["commands_ubxes"]
                         if "commands_pmtks" in gps_data:
                             component_info["gps"]["commands_pmtks"] = gps_data["commands_pmtks"]
-                    elif component_info["device_type"] == "pm25aqi":
+                    elif component_info["deviceType"] == "pm25aqi":
                         component_info["pm25aqi"] = {}
                         # Parse PM2.5 AQI properties
                         if "pm25aqi" in component_data:
@@ -212,11 +212,11 @@ def convert_components_to_json():
                                     })
                                 else:
                                     component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
-                    elif component_info["device_type"] == "tmc22xx":
+                    elif component_info["deviceType"] == "tmc22xx":
                         # TODO
                         pass
                     else:
-                        raise ValueError(f"Unknown deviceType {component_info['device_type']} for {category}/{component_dir}")
+                        raise ValueError(f"Unknown deviceType {component_info['deviceType']} for {category}/{component_dir}")
 
                 # Look for an image file
                 image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
