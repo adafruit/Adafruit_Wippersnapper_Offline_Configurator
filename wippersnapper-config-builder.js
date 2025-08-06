@@ -1550,7 +1550,7 @@ function saveModalData() {
             if (!componentConfig.gps) {
                 componentConfig.gps = {};
             }
-            componentConfig.gps.period = period * 1000;
+            componentConfig.gps.period = period;
         }
 
         // Handle multiplexer channel if selected
@@ -1711,7 +1711,7 @@ function saveModalData() {
             if (!componentConfig.gps) {
                 componentConfig.gps = {};
             }
-            componentConfig.gps.period = period * 1000;
+            componentConfig.gps.period = period;
         }
 
         // Add PM25AQI fields if this is a PM25AQI component
@@ -1719,7 +1719,7 @@ function saveModalData() {
             if (!componentConfig.pm25aqi) {
                 componentConfig.pm25aqi = {};
             }
-            componentConfig.pm25aqi.period = period * 1000;
+            componentConfig.pm25aqi.period = period;
         }
 
         // Add generic_input fields if this is a generic_input component
