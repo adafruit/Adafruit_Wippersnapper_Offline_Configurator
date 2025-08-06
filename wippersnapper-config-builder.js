@@ -1536,9 +1536,14 @@ function saveModalData() {
         componentConfig.i2cDeviceName = componentId;
         componentConfig.i2cDeviceAddress = i2cAddress;
 
-        // Add isGps field if it exists in the component template
+        // Add GPS fields if they exist in the component template
         if (componentTemplate.isGps) {
             componentConfig.isGps = componentTemplate.isGps;
+            // Add gps object with period (convert from seconds to milliseconds)
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
+            componentConfig.gps.period = period * 1000;
         }
 
         // Handle multiplexer channel if selected
@@ -1583,6 +1588,24 @@ function saveModalData() {
             // Remove any components using this multiplexer
             appState.selectedComponents = appState.selectedComponents.filter(c =>
                 !(c.i2cMuxAddress && c.i2cMuxAddress === componentConfig.i2cDeviceAddress));
+        } else {
+          if (! componentTemplate.isGps) {
+          // Add data types for non-multiplexer components
+          const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+          if (dataTypeCheckboxes.length > 0) {
+              componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
+                  try {
+                      return { type: JSON.parse(checkbox.value) };
+                  } catch (e) {
+                      return { type: checkbox.value };
+                  }
+              });
+          } else {
+              validationError = true;
+              alert('Please select at least one data type for the I2C component.');
+              return false;
+          }
+          }
         }
     } else if (componentType === 'ds18x20') {
         const pin = document.getElementById('modal-pin-select').value;
