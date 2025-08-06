@@ -1523,9 +1523,16 @@ function saveModalData() {
     const componentConfig = {
         instanceId: appState.nextComponentId++,
         name: name,
-        componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType,
-        period: period
+        componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType
     };
+    
+    // Only add period for components that don't have their own period objects
+    if (!componentTemplate.isGps && 
+        componentTemplate.device_type !== 'gps' && 
+        componentTemplate.device_type !== 'pm25aqi' && 
+        componentTemplate.device_type !== 'generic_input') {
+        componentConfig.period = period;
+    }
     let validationError = false; // future use
 
     // Special handling for I2C
@@ -1699,12 +1706,28 @@ function saveModalData() {
             componentConfig.deviceId = componentTemplate.deviceId;
         }
 
-        // Add period if it exists in the component template
-        if (componentTemplate.gps && componentTemplate.gps.period) {
+        // Add GPS fields if this is a GPS component
+        if (componentTemplate.device_type === 'gps') {
             if (!componentConfig.gps) {
                 componentConfig.gps = {};
             }
-            componentConfig.gps.period = componentTemplate.gps.period;
+            componentConfig.gps.period = period * 1000;
+        }
+
+        // Add PM25AQI fields if this is a PM25AQI component
+        if (componentTemplate.device_type === 'pm25aqi') {
+            if (!componentConfig.pm25aqi) {
+                componentConfig.pm25aqi = {};
+            }
+            componentConfig.pm25aqi.period = period * 1000;
+        }
+
+        // Add generic_input fields if this is a generic_input component
+        if (componentTemplate.device_type === 'generic_input') {
+            if (!componentConfig.generic_input) {
+                componentConfig.generic_input = {};
+            }
+            componentConfig.generic_input.period = period;
         }
 
         // Add UBX commands if they exist in the component template
