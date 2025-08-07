@@ -1527,8 +1527,7 @@ function saveModalData() {
     };
     
     // Only add period for components that don't have their own period objects
-    if (!componentTemplate.isGps && 
-        componentTemplate.deviceType !== 'gps' && 
+    if (! componentTemplate.deviceType !== 'gps' && 
         componentTemplate.deviceType !== 'pm25aqi' && 
         componentTemplate.deviceType !== 'generic_input') {
         componentConfig.period = period;
@@ -1596,23 +1595,23 @@ function saveModalData() {
             appState.selectedComponents = appState.selectedComponents.filter(c =>
                 !(c.i2cMuxAddress && c.i2cMuxAddress === componentConfig.i2cDeviceAddress));
         } else {
-          if (! componentTemplate.isGps) {
-          // Add data types for non-multiplexer components
-          const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
-          if (dataTypeCheckboxes.length > 0) {
-              componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
-                  try {
-                      return { type: JSON.parse(checkbox.value) };
-                  } catch (e) {
-                      return { type: checkbox.value };
-                  }
-              });
-          } else {
-              validationError = true;
-              alert('Please select at least one data type for the I2C component.');
-              return false;
-          }
-          }
+            if (! componentTemplate.isGps) {
+                // Add data types for non-multiplexer components
+                const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+                if (dataTypeCheckboxes.length > 0) {
+                    componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
+                        try {
+                            return { type: JSON.parse(checkbox.value) };
+                        } catch (e) {
+                            return { type: checkbox.value };
+                        }
+                    });
+                } else {
+                    validationError = true;
+                    alert('Please select at least one data type for the I2C component.');
+                    return false;
+                }
+            }
         }
     } else if (componentType === 'ds18x20') {
         const pin = document.getElementById('modal-pin-select').value;
@@ -1712,6 +1711,14 @@ function saveModalData() {
                 componentConfig.gps = {};
             }
             componentConfig.gps.period = period;
+
+            if (componentTemplate.gps.commands_ubxes) {
+                componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
+            }
+
+            if (componentTemplate.gps.commands_pmtks) {
+                componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
+            }
         }
 
         // Add PM25AQI fields if this is a PM25AQI component
@@ -1728,39 +1735,6 @@ function saveModalData() {
                 componentConfig.generic_input = {};
             }
             componentConfig.generic_input.period = period;
-        }
-
-        // Add UBX commands if they exist in the component template
-        if (componentTemplate.gps && componentTemplate.gps.commands_ubxes) {
-            if (!componentConfig.gps) {
-                componentConfig.gps = {};
-            }
-            componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
-        }
-
-        // Add PMTK commands if they exist in the component template
-        if (componentTemplate.gps && componentTemplate.gps.commands_pmtks) {
-            if (!componentConfig.gps) {
-                componentConfig.gps = {};
-            }
-            componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
-        }
-
-
-        // Add AQI period if it exists in the component template
-        if (componentTemplate.pm25aqi && componentTemplate.pm25aqi.period) {
-            if (!componentConfig.pm25aqi) {
-                componentConfig.pm25aqi = {};
-            }
-            componentConfig.pm25aqi.period = componentTemplate.pm25aqi.period;
-        }
-
-        // Add generic_input field if it exists in the component template
-        if (componentTemplate.generic_input && componentTemplate.generic_input.period) {
-            if (!componentConfig.generic_input) {
-                componentConfig.generic_input = {};
-            }
-            componentConfig.generic_input.period = componentTemplate.generic_input.period;
         }
 
     }
