@@ -3,3 +3,6 @@
 __pycache__/
 *.pyc
 
+bin/
+lib/
+pyvenv.cfg

@@ -156,7 +156,68 @@ def convert_components_to_json():
                             component_info["channels"] = 8
                         else:
                             component_info["channels"] = 4
-                
+
+                    # Special handling for GPS over I2C
+                    if component_data.get("isGps", False):
+                            component_info["isGps"] = True
+                            gps_data = component_data.get("gps", {})
+                            if "commands_ubxes" in gps_data:
+                                component_info["gps"]["commands_ubxes"] = gps_data["commands_ubxes"]
+                            if "commands_pmtks" in gps_data:
+                                component_info["gps"]["commands_pmtks"] = gps_data["commands_pmtks"]
+
+                # Handle UART-specific properties
+                if category == "uart":
+                    # Required properties
+                    component_info["deviceType"] = component_data.get("deviceType")
+                    component_info["deviceId"] = component_data.get("deviceId")
+                    # Specific deviceType properties
+                    if component_info["deviceType"] == "generic_input":
+                        component_info["generic_input"] = {}
+                        generic_input_data = component_data.get("generic_input", {})
+                        component_info["generic_input"]["period"] = generic_input_data.get("period", 30000)
+                        # Extract data types
+                        if "generic_input" in component_data and "sensor_types" in component_data["generic_input"]:
+                            for meas_type in component_data["generic_input"]["sensor_types"]:
+                                if isinstance(meas_type, dict) and "sensorType" in meas_type:
+                                    component_info["dataTypes"].append({
+                                        "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
+                                        "sensorType": map_datatypes_to_offline_types(meas_type["sensorType"]) if "sensorType" in meas_type else None
+                                    })
+                                else:
+                                    component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
+                    elif component_info["deviceType"] == "gps":
+                        component_info["gps"] = {}
+                        gps_data = component_data.get("gps", {})
+                        component_info["gps"]["period"] = gps_data.get("period", 30000)
+                        if "commands_ubxes" in gps_data:
+                            component_info["gps"]["commands_ubxes"] = gps_data["commands_ubxes"]
+                        if "commands_pmtks" in gps_data:
+                            component_info["gps"]["commands_pmtks"] = gps_data["commands_pmtks"]
+                    elif component_info["deviceType"] == "pm25aqi":
+                        component_info["pm25aqi"] = {}
+                        # Parse PM2.5 AQI properties
+                        if "pm25aqi" in component_data:
+                            component_info["pm25aqi"]["period"] = component_data["pm25aqi"].get("period", 30000)  # Default to 30s if not specified
+                            if component_data["pm25aqi"].get("is_pm1006", False):
+                                component_info["pm25aqi"]["is_pm1006"] = True
+                        # Extract data types
+                        pm25aqi_data = component_data
+                        if "pm25aqi" in pm25aqi_data and "sensor_types" in pm25aqi_data["pm25aqi"]:
+                            for meas_type in pm25aqi_data["pm25aqi"]["sensor_types"]:
+                                if isinstance(meas_type, dict) and "sensorType" in meas_type:
+                                    component_info["dataTypes"].append({
+                                        "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
+                                        "sensorType": map_datatypes_to_offline_types(meas_type["sensorType"]) if "sensorType" in meas_type else None
+                                    })
+                                else:
+                                    component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
+                    elif component_info["deviceType"] == "tmc22xx":
+                        # TODO
+                        pass
+                    else:
+                        raise ValueError(f"Unknown deviceType {component_info['deviceType']} for {category}/{component_dir}")
+
                 # Look for an image file
                 image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
                 image_found = False

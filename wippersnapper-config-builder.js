@@ -1008,7 +1008,7 @@ function createComponentCard(component, type) {
     if (component.image) {
         const img = document.createElement('img');
         if (!component.image.startsWith('http')) {
-            img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/main/" + component.image;
+            img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/offline-mode/" + component.image;
         } else {
             img.src = component.image;
         }
@@ -1523,9 +1523,15 @@ function saveModalData() {
     const componentConfig = {
         instanceId: appState.nextComponentId++,
         name: name,
-        componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType,
-        period: period
+        componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType
     };
+    
+    // Only add period for components that don't have their own period objects
+    if (! componentTemplate.deviceType !== 'gps' && 
+        componentTemplate.deviceType !== 'pm25aqi' && 
+        componentTemplate.deviceType !== 'generic_input') {
+        componentConfig.period = period;
+    }
     let validationError = false; // future use
 
     // Special handling for I2C
@@ -1535,6 +1541,16 @@ function saveModalData() {
 
         componentConfig.i2cDeviceName = componentId;
         componentConfig.i2cDeviceAddress = i2cAddress;
+
+        // Add GPS fields if they exist in the component template
+        if (componentTemplate.isGps) {
+            componentConfig.isGps = componentTemplate.isGps;
+            // Add gps object with period (convert from seconds to milliseconds)
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
+            componentConfig.gps.period = period;
+        }
 
         // Handle multiplexer channel if selected
         if (i2cBus.startsWith('mux-')) {
@@ -1579,20 +1595,22 @@ function saveModalData() {
             appState.selectedComponents = appState.selectedComponents.filter(c =>
                 !(c.i2cMuxAddress && c.i2cMuxAddress === componentConfig.i2cDeviceAddress));
         } else {
-            // Add data types for non-multiplexer components
-            const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
-            if (dataTypeCheckboxes.length > 0) {
-                componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
-                    try {
-                        return { type: JSON.parse(checkbox.value) };
-                    } catch (e) {
-                        return { type: checkbox.value };
-                    }
-                });
-            } else {
-                validationError = true;
-                alert('Please select at least one data type for the I2C component.');
-                return false;
+            if (! componentTemplate.isGps) {
+                // Add data types for non-multiplexer components
+                const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+                if (dataTypeCheckboxes.length > 0) {
+                    componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
+                        try {
+                            return { type: JSON.parse(checkbox.value) };
+                        } catch (e) {
+                            return { type: checkbox.value };
+                        }
+                    });
+                } else {
+                    validationError = true;
+                    alert('Please select at least one data type for the I2C component.');
+                    return false;
+                }
             }
         }
     } else if (componentType === 'ds18x20') {
@@ -1650,31 +1668,75 @@ function saveModalData() {
         // Mark pin as used
         appState.usedPins.add(parseInt(pin));
     } else if (componentType === 'uart') {
-        const txPin = document.getElementById('modal-uart-tx').value;
-        const rxPin = document.getElementById('modal-uart-rx').value;
-        if (!rxPin) {
+        const pinTx = document.getElementById('modal-uart-tx').value;
+        const pinRx = document.getElementById('modal-uart-rx').value;
+        if (!pinRx) {
             validationError = true;
             alert('Please select a RX pin for the component.');
             return false;
         }
-        if (!!txPin) {
-            componentConfig.txPin = `D${txPin}`;
-            appState.usedPins.add(parseInt(txPin));
+        if (!!pinTx) {
+            componentConfig.pinTx = `D${pinTx}`;
+            appState.usedPins.add(parseInt(pinTx));
         }
-        componentConfig.rxPin = `D${rxPin}`;
-        appState.usedPins.add(parseInt(rxPin));
+        componentConfig.pinRx = `D${pinRx}`;
+        appState.usedPins.add(parseInt(pinRx));
 
         // Add data types
         const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
         if (dataTypeCheckboxes.length > 0) {
             componentConfig.sensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
                 try {
-                    return JSON.parse(checkbox.value);
+                    return { type: JSON.parse(checkbox.value) };
                 } catch (e) {
-                    return checkbox.value;
+                    return { type: checkbox.value };
                 }
             });
         }
+
+        // UART-Specific //
+        // Add deviceType field if it exists in the component template
+        if (componentTemplate.deviceType) {
+            componentConfig.deviceType = componentTemplate.deviceType;
+        }
+
+        // Add deviceId field if it exists in the component template
+        if (componentTemplate.deviceId) {
+            componentConfig.deviceId = componentTemplate.deviceId;
+        }
+
+        // Add GPS fields if this is a GPS component
+        if (componentTemplate.deviceType === 'gps') {
+            if (!componentConfig.gps) {
+                componentConfig.gps = {};
+            }
+            componentConfig.gps.period = period;
+
+            if (componentTemplate.gps.commands_ubxes) {
+                componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
+            }
+
+            if (componentTemplate.gps.commands_pmtks) {
+                componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
+            }
+        }
+
+        // Add PM25AQI fields if this is a PM25AQI component
+        if (componentTemplate.deviceType === 'pm25aqi') {
+            if (!componentConfig.pm25aqi) {
+                componentConfig.pm25aqi = {};
+            }
+            componentConfig.pm25aqi.period = period;
+        }
+
+        // Add generic_input fields if this is a generic_input component
+        if (componentTemplate.deviceType === 'generic_input') {
+            if (!componentConfig.generic_input) {
+                componentConfig.generic_input = {};
+            }
+            componentConfig.generic_input.period = period;
+        }
+
     }
 
     // Add component to the selected components list
@@ -1758,7 +1820,7 @@ function updateSelectedComponentsList() {
             detailsText += `<br>Pin: ${component.pinName}`;
             detailsText += `<br>Pixels: ${component.numPixels}`;
         } else if (component.componentAPI === 'uart') {
-            detailsText += `<br>TX Pin: ${component.txPin}, RX Pin: ${component.rxPin}`;
+            detailsText += `<br>TX Pin: ${component.pinTx}, RX Pin: ${component.pinRx}`;
 
             // Show sensor types
             if (component.sensorTypes && component.sensorTypes.length > 0) {
@@ -1810,14 +1872,14 @@ function removeComponent(instanceId) {
         appState.usedPins.delete(pinNumber);
     }
 
-    if (component.txPin) {
-        const txPinNumber = parseInt(component.txPin.replace('D', ''));
-        appState.usedPins.delete(txPinNumber);
+    if (component.pinTx) {
+        const pinTxNumber = parseInt(component.pinTx.replace('D', ''));
+        appState.usedPins.delete(pinTxNumber);
     }
 
-    if (component.rxPin) {
-        const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
-        appState.usedPins.delete(rxPinNumber);
+    if (component.pinRx) {
+        const pinRxNumber = parseInt(component.pinRx.replace('D', ''));
+        appState.usedPins.delete(pinRxNumber);
     }
 
     // Check if this is a multiplexer and remove it from the multiplexers list
@@ -2290,14 +2352,14 @@ function importConfigObject(config) {
                         appState.usedPins.add(pinNumber);
                     }
 
-                    if (component.txPin) {
-                        const txPinNumber = parseInt(component.txPin.replace('D', ''));
-                        appState.usedPins.add(txPinNumber);
+                    if (component.pinTx) {
+                        const pinTxNumber = parseInt(component.pinTx.replace('D', ''));
+                        appState.usedPins.add(pinTxNumber);
                     }
 
-                    if (component.rxPin) {
-                        const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
-                        appState.usedPins.add(rxPinNumber);
+                    if (component.pinRx) {
+                        const pinRxNumber = parseInt(component.pinRx.replace('D', ''));
+                        appState.usedPins.add(pinRxNumber);
                     }
 
                     // Handle I2C bus pins

@@ -407,17 +407,13 @@
 
         <div id="components-section" class="section hidden">
             <h2>5. Add Components</h2>
-            <p style="color: red;"><small><i>UART + other component categories are currently being implemented in offline mode (No ETA, but maybe reactive actions too!).</i></small></p>
 
             <div id="component-type-tabs" class="tab">
                 <button class="comp-tab active" onclick="openComponentTab(event, 'all-components')">All Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
-                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
-                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
-                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
-                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
             </div>
 
             <div id="all-components" class="component-tabcontent" style="display: block;">
