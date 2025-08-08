@@ -1815,39 +1815,7 @@ window.jsonComponentsObject = {
         "documentationUrl": "https://learn.adafruit.com/using-ds18b20-temperature-sensor-with-wippersnapper"
       }
     ],
-    "uart": [
-      {
-        "id": "pm1006",
-        "displayName": "VINDRIKTNING (PM1006)",
-        "name": "pm1006",
-        "description": "",
-        "category": "uart",
-        "dataTypes": [
-          "pm25-env"
-        ],
-        "image": "components/uart/pm1006/image.png",
-        "productUrl": "https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/",
-        "documentationUrl": "https://learn.adafruit.com/ikea-vindriktning-hack-with-qt-py-esp32-s3-and-adafruit-io"
-      },
-      {
-        "id": "pms5003",
-        "displayName": "pms5003",
-        "name": "pms5003",
-        "description": "",
-        "category": "uart",
-        "dataTypes": [
-          "pm10-std",
-          "pm25-std",
-          "pm100-std",
-          "pm10-env",
-          "pm25-env",
-          "pm100-env"
-        ],
-        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/3686-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/3686",
-        "documentationUrl": "https://learn.adafruit.com/pm25-air-quality-sensor"
-      }
-    ],
+    "uart": [],
     "pwm": [
       {
         "id": "rgb_led",
