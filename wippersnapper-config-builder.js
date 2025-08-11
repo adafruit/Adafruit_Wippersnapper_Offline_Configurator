@@ -453,8 +453,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('sd-card-pin-select').classList.remove('hidden');
         } else {
             document.getElementById('sd-card-pin-select').classList.add('hidden');
+            appState.usedPins.delete(appState.sdCardCS);
+            document.getElementById('manual-sd-cs-pin').textContent = '';
+            document.getElementById('sd-cs-pin').textContent = '';
             appState.sdCardCS = null;
         }
+        populatePinsLists();
     });
 
     // RTC type selection handler
