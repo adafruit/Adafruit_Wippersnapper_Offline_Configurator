@@ -128,12 +128,12 @@ const companionBoardConfigs = {
         image: 'https://cdn-shop.adafruit.com/640x480/4285-05.jpg'
     },
     'seeed-xiao-s3sense-camera-addon': {
-        rtc: 'PCF8563',
-        sdCardCS: 'D2',
-        extras: 'SD Card, Camera, Extra GPIOs D11+D12',
-        productURL: 'https://www.seeedstudio.com/Seeeduino-XIAO-Expansion-board-p-4746.html',
-        documentationURL: 'https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/',
-        image: 'https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/Update_pic/zheng1.jpg'
+        rtc: null,
+        sdCardCS: 21,
+        extras: 'SD Card, Camera, Microphone, Extra GPIOs D11+D12',
+        productURL: 'https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html',
+        documentationURL: 'https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/',
+        image: 'https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/66.jpg'
     },
     'seeed-xiao-ssd1306-expansion-base': {
         rtc: 'PCF8563',
