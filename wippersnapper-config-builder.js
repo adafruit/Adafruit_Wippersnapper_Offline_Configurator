@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Mark SD CS pin as used
                     appState.usedPins.add(pin.number);
                 } else {
-                    console.warn(`SD card CS pin ${companion.sdCardCS} not found in selected board pins.`);
+                    console.warn(`[${companionId}] SD card CS pin ${companion.sdCardCS} not found in selected board pins.`);
                     document.getElementById('sd-missing').classList.remove('hidden');
                     document.getElementById('sd-present').classList.add('hidden');
                 }
