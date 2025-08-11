@@ -298,19 +298,19 @@ window.jsonComponentsObject = {
         "category": "i2c",
         "dataTypes": [
           {
-            "displayName": "Ambient Temperature (\u00c2\u00b0C)",
+            "displayName": "Ambient Temperature (°C)",
             "sensorType": "ambient-temp"
           },
           {
-            "displayName": "Ambient Temperature (\u00c2\u00b0F)",
+            "displayName": "Ambient Temperature (°F)",
             "sensorType": "ambient-temp-fahrenheit"
           },
           {
-            "displayName": "Measured Object Temp (\u00c2\u00b0C)",
+            "displayName": "Measured Object Temp (°C)",
             "sensorType": "object-temp"
           },
           {
-            "displayName": "Measured Object Temp (\u00c2\u00b0F)",
+            "displayName": "Measured Object Temp (°F)",
             "sensorType": "object-temp-fahrenheit"
           }
         ],
@@ -422,7 +422,7 @@ window.jsonComponentsObject = {
         "id": "hdc302x",
         "displayName": "HDC302x",
         "name": "hdc302x",
-        "description": "Precision temperature (\u00c2\u00b10.1\u00c2\u00b0C typical) and humidity sensors (\u00c2\u00b10.5% typ). HDC3020 / HDC3021 / HDC3022",
+        "description": "Precision temperature (±0.1°C typical) and humidity sensors (±0.5% typ). HDC3020 / HDC3021 / HDC3022",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
@@ -830,15 +830,15 @@ window.jsonComponentsObject = {
         "category": "i2c",
         "dataTypes": [
           {
-            "displayName": "Ambient Temperature (\u00c2\u00b0C)",
+            "displayName": "Ambient Temperature (°C)",
             "sensorType": "ambient-temp"
           },
           {
-            "displayName": "Ambient Temperature (\u00c2\u00b0F)",
+            "displayName": "Ambient Temperature (°F)",
             "sensorType": "ambient-temp-fahrenheit"
           },
           {
-            "displayName": "Type K Thermocouple (\u00c2\u00b0C)",
+            "displayName": "Type K Thermocouple (°C)",
             "sensorType": "raw"
           }
         ],
