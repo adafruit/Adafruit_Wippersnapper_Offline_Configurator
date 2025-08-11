@@ -127,6 +127,14 @@ const companionBoardConfigs = {
         documentationURL: 'https://learn.adafruit.com/adafruit-airlift-shield-esp32-wifi-co-processor',
         image: 'https://cdn-shop.adafruit.com/640x480/4285-05.jpg'
     },
+    'seeed-xiao-s3sense-camera-addon': {
+        rtc: 'PCF8563',
+        sdCardCS: 'D2',
+        extras: 'SD Card, Camera, Extra GPIOs D11+D12',
+        productURL: 'https://www.seeedstudio.com/Seeeduino-XIAO-Expansion-board-p-4746.html',
+        documentationURL: 'https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/',
+        image: 'https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/Update_pic/zheng1.jpg'
+    },
     'seeed-xiao-ssd1306-expansion-base': {
         rtc: 'PCF8563',
         sdCardCS: 'D2',
