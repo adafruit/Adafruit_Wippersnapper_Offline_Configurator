@@ -1952,7 +1952,8 @@ function generateConfiguration() {
             referenceVoltage: appState.selectedBoard.referenceVoltage,
             totalGPIOPins: appState.selectedBoard.totalGPIOPins,
             totalAnalogPins: appState.selectedBoard.totalAnalogPins,
-            statusLEDBrightness: appState.statusLEDBrightness
+            statusLEDBrightness: appState.statusLEDBrightness,
+            autoConfig: appState.enableautoConfig
         },
         components: []
     };
