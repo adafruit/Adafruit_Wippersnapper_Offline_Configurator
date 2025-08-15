@@ -520,6 +520,27 @@ window.jsonComponentsObject = {
         ]
       },
       {
+        "id": "ina228",
+        "displayName": "INA228",
+        "name": "ina228",
+        "description": "85V, 20-bit, ultra-high-precision power monitor (max 10A, 0.05% gain error)",
+        "category": "i2c",
+        "dataTypes": [
+          "voltage",
+          "current"
+        ],
+        "image": "https://cdn-shop.adafruit.com/640x480/5832-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/5832",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-ina228-i2c-power-monitor",
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41",
+          "0x44",
+          "0x45"
+        ]
+      },
+      {
         "id": "ina237",
         "displayName": "INA237",
         "name": "ina237",
@@ -1279,27 +1300,6 @@ window.jsonComponentsObject = {
         "address": "0x44",
         "addresses": [
           "0x44"
-        ]
-      },
-      {
-        "id": "ina228",
-        "displayName": "INA228",
-        "name": "ina228",
-        "description": "85V, 20-bit, ultra-high-precision power monitor (max 10A, 0.05% gain error)",
-        "category": "i2c",
-        "dataTypes": [
-          "voltage",
-          "current"
-        ],
-        "image": "https://cdn-shop.adafruit.com/640x480/5832-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/5832",
-        "documentationUrl": "https://learn.adafruit.com/adafruit-ina228-i2c-power-monitor",
-        "address": "0x40",
-        "addresses": [
-          "0x40",
-          "0x41",
-          "0x44",
-          "0x45"
         ]
       },
       {
