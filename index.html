@@ -314,7 +314,8 @@
                 <option value="microsd-bff">Adafruit microSD Card BFF Add-On for QT Py and Xiao</option>
                 <option value="winc1500-shield">Adafruit WINC1500 WiFi Shield</option>
                 <option value="airlift-shield">Adafruit AirLift Shield - ESP32 WiFi Co-Processor</option>
-
+                <option value="seeed-xiao-s3sense-camera-addon">Seeed Studio XIAO ESP32S3 Sense Camera/SD Add-on board</option>
+                <option value="seeed-xiao-ssd1306-expansion-base">Seeed Studio XIAO Expansion base board</option>
             </select>
 
             <div id="companion-details" class="hidden">
@@ -358,6 +359,7 @@
 					<select id="rtc-select">
                         <option value="soft">Software RTC</option>
                         <option value="PCF8523">PCF8523</option>
+                        <option value="PCF8563">PCF8563</option>
                         <option value="DS3231">DS3231</option>
                         <option value="DS1307">DS1307</option>
                     </select>
@@ -508,7 +510,7 @@
         <div id="generate-section" class="section hidden">
             <h2>7. Generate Configuration</h2>
             <button id="generate-config-btn">Generate Configuration</button>
-            <input type="checkbox" id="use-auto-init" onchange="javascript:appState.enableautoConfig=this.checked;"> <label for="use-auto-init" title="Auto config fallback for I2C sensors that fail to initialise (selects alternative sensors at same address)">Use Auto Init fallback</label>
+            <input type="checkbox" id="use-auto-init" onchange="javascript:appState.enableautoConfig=this.checked;"> <label for="use-auto-init" title="Auto config fallback for I2C sensors that fail to initialise (selects alternative sensors at same address)">Use Auto Init fallback for failed or unspecified components (default)</label>
             <div id="config-output-container" class="hidden">
                 <h3>Configuration JSON:</h3>
                 <pre id="config-output" class="config-output"></pre>

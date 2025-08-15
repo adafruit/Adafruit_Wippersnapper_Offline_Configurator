@@ -126,6 +126,22 @@ const companionBoardConfigs = {
         productURL: 'https://www.adafruit.com/product/4285',
         documentationURL: 'https://learn.adafruit.com/adafruit-airlift-shield-esp32-wifi-co-processor',
         image: 'https://cdn-shop.adafruit.com/640x480/4285-05.jpg'
+    },
+    'seeed-xiao-s3sense-camera-addon': {
+        rtc: null,
+        sdCardCS: 21,
+        extras: 'SD Card, Camera, Microphone, Extra GPIOs D11+D12',
+        productURL: 'https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html',
+        documentationURL: 'https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/',
+        image: 'https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/66.jpg'
+    },
+    'seeed-xiao-ssd1306-expansion-base': {
+        rtc: 'PCF8563',
+        sdCardCS: 'D2',
+        extras: 'SD Card, Display, Piezo Speaker, LiPo connector',
+        productURL: 'https://www.seeedstudio.com/Seeeduino-XIAO-Expansion-board-p-4746.html',
+        documentationURL: 'https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/',
+        image: 'https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/Update_pic/zheng1.jpg'
     }
 };
 
@@ -249,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (boardImageElem) {
             if (board.image) {
                 if (!board.image.startsWith('http')) {
-                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/rp2040_datalogger_feather/" + board.image;
+                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/offline-mode/" + board.image;
                 } else {
                     boardImageElem.src = board.image;
                 }
@@ -365,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Mark SD CS pin as used
                     appState.usedPins.add(pin.number);
                 } else {
-                    console.warn(`SD card CS pin ${companion.sdCardCS} not found in selected board pins.`);
+                    console.warn(`[${companionId}] SD card CS pin ${companion.sdCardCS} not found in selected board pins.`);
                     document.getElementById('sd-missing').classList.remove('hidden');
                     document.getElementById('sd-present').classList.add('hidden');
                 }
@@ -437,8 +453,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('sd-card-pin-select').classList.remove('hidden');
         } else {
             document.getElementById('sd-card-pin-select').classList.add('hidden');
+            appState.usedPins.delete(appState.sdCardCS);
+            document.getElementById('manual-sd-cs-pin').textContent = '';
+            document.getElementById('sd-cs-pin').textContent = '';
             appState.sdCardCS = null;
         }
+        populatePinsLists();
     });
 
     // RTC type selection handler
@@ -1932,7 +1952,8 @@ function generateConfiguration() {
             referenceVoltage: appState.selectedBoard.referenceVoltage,
             totalGPIOPins: appState.selectedBoard.totalGPIOPins,
             totalAnalogPins: appState.selectedBoard.totalAnalogPins,
-            statusLEDBrightness: appState.statusLEDBrightness
+            statusLEDBrightness: appState.statusLEDBrightness,
+            autoConfig: appState.enableautoConfig
         },
         components: []
     };

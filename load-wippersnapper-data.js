@@ -1,8 +1,8 @@
 // Load Wippersnapper boards and components data
 
 // Configuration - technically unused (instead ./ relative links) but useful for reference
-const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_boards.json'; //'wippersnapper_boards.json';
-const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_components.json'; //'wippersnapper_components.json';
+const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/offline-mode/wippersnapper_boards.json'; //'wippersnapper_boards.json';
+const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/offline-mode/wippersnapper_components.json'; //'wippersnapper_components.json';
 
 // Global app state
 const appState = {
@@ -159,7 +159,7 @@ function populateBoardSelect() {
 
     // Filter boards to only include those with UF2 install method
     const filteredBoards = Object.entries(appState.boardsData)
-        .filter(([boardId, board]) => board.installMethod === 'uf2'); //['uf2', 'web-native-usb'].includes(board.installMethod)); //funhouse
+        .filter(([boardId, board]) => ['uf2', 'web-native-usb'].includes(board.installMethod)); //funhouse
 
     // Sort boards by vendor and name
     const sortedBoards = filteredBoards
