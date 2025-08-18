@@ -160,6 +160,7 @@ def convert_components_to_json():
                     # Special handling for GPS over I2C
                     if component_data.get("isGps", False):
                             component_info["isGps"] = True
+                            component_info["gps"] = {}
                             gps_data = component_data.get("gps", {})
                             if "commands_ubxes" in gps_data:
                                 component_info["gps"]["commands_ubxes"] = gps_data["commands_ubxes"]
