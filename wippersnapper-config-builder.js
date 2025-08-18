@@ -1570,6 +1570,14 @@ function saveModalData() {
                 componentConfig.gps = {};
             }
             componentConfig.gps.period = period;
+
+            if (componentTemplate.gps.commands_ubxes) {
+                componentConfig.gps.commands_ubxes = componentTemplate.gps.commands_ubxes;
+            }
+
+            if (componentTemplate.gps.commands_pmtks) {
+                componentConfig.gps.commands_pmtks = componentTemplate.gps.commands_pmtks;
+            }
         }
 
         // Handle multiplexer channel if selected
