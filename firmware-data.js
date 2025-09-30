@@ -1,155 +1,155 @@
-// Auto-generated on 2025-09-30 00:19:28
+// Auto-generated on 2025-09-30 17:23:23
 const FIRMWARE_DATA = {
   "releaseInfo": {
-    "version": "1.0.0-offline-beta.4",
-    "name": "WipperSnapper Offline 1.0.0-offline-beta.4",
-    "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/tag/1.0.0-offline-beta.4",
-    "publishedDate": "2025-08-18"
+    "version": "1.0.0-offline-beta.5",
+    "name": "WipperSnapper Offline 1.0.0-offline-beta.5",
+    "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/tag/1.0.0-offline-beta.5",
+    "publishedDate": "2025-09-30"
   },
   "firmwareFiles": [
     {
-      "name": "wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.4.uf2",
-      "size": 3044864,
+      "name": "wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
+      "size": 3088896,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s2.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s2.1.0.0-offline-beta.4.uf2",
-      "size": 2990080,
+      "name": "wippersnapper.feather_esp32s2.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s2.1.0.0-offline-beta.5.uf2",
+      "size": 3034112,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s2_reverse_tft.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s2_reverse_tft.1.0.0-offline-beta.4.uf2",
-      "size": 2990080,
+      "name": "wippersnapper.feather_esp32s2_reverse_tft.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s2_reverse_tft.1.0.0-offline-beta.5.uf2",
+      "size": 3034112,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s2_tft.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s2_tft.1.0.0-offline-beta.4.uf2",
-      "size": 2990080,
+      "name": "wippersnapper.feather_esp32s2_tft.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s2_tft.1.0.0-offline-beta.5.uf2",
+      "size": 3034112,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s3.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s3.1.0.0-offline-beta.4.uf2",
-      "size": 3044864,
+      "name": "wippersnapper.feather_esp32s3.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3.1.0.0-offline-beta.5.uf2",
+      "size": 3088896,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s3_4mbflash_2mbpsram.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s3_4mbflash_2mbpsram.1.0.0-offline-beta.4.uf2",
-      "size": 3050496,
+      "name": "wippersnapper.feather_esp32s3_4mbflash_2mbpsram.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3_4mbflash_2mbpsram.1.0.0-offline-beta.5.uf2",
+      "size": 3094528,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.4.uf2",
-      "size": 3050496,
+      "name": "wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.5.uf2",
+      "size": 3094528,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_esp32s3_tft.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_esp32s3_tft.1.0.0-offline-beta.4.uf2",
-      "size": 3050496,
+      "name": "wippersnapper.feather_esp32s3_tft.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3_tft.1.0.0-offline-beta.5.uf2",
+      "size": 3094528,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.4.uf2",
-      "size": 863232,
+      "name": "wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.5.uf2",
+      "size": 890368,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.metroesp32s2.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.metroesp32s2.1.0.0-offline-beta.4.uf2",
-      "size": 2989568,
+      "name": "wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
+      "size": 3033600,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.metro_esp32s3.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.metro_esp32s3.1.0.0-offline-beta.4.uf2",
-      "size": 3054592,
-      "downloadCount": 1,
-      "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
-    },
-    {
-      "name": "wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.4.uf2",
-      "size": 872960,
+      "name": "wippersnapper.metro_esp32s3.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metro_esp32s3.1.0.0-offline-beta.5.uf2",
+      "size": 3098624,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.4.uf2",
-      "size": 862208,
+      "name": "wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
+      "size": 899072,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.4.uf2",
-      "size": 858112,
+      "name": "wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.5.uf2",
+      "size": 889344,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:05Z"
     },
     {
-      "name": "wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.4.uf2",
-      "size": 2989568,
+      "name": "wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
+      "size": 884736,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.qtpy_esp32s3.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.qtpy_esp32s3.1.0.0-offline-beta.4.uf2",
-      "size": 3044352,
+      "name": "wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.5.uf2",
+      "size": 3034112,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.qtpy_esp32s3_n4r2.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.qtpy_esp32s3_n4r2.1.0.0-offline-beta.4.uf2",
-      "size": 3050496,
+      "name": "wippersnapper.qtpy_esp32s3.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.qtpy_esp32s3.1.0.0-offline-beta.5.uf2",
+      "size": 3088896,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
     },
     {
-      "name": "wippersnapper.xiao_esp32s3.1.0.0-offline-beta.4.uf2",
-      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.4/wippersnapper.xiao_esp32s3.1.0.0-offline-beta.4.uf2",
-      "size": 3145728,
+      "name": "wippersnapper.qtpy_esp32s3_n4r2.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.qtpy_esp32s3_n4r2.1.0.0-offline-beta.5.uf2",
+      "size": 3094528,
       "downloadCount": 0,
       "contentType": "application/octet-stream",
-      "createdAt": "2025-08-18T17:38:47Z"
+      "createdAt": "2025-09-30T16:21:04Z"
+    },
+    {
+      "name": "wippersnapper.xiao_esp32s3.1.0.0-offline-beta.5.uf2",
+      "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.xiao_esp32s3.1.0.0-offline-beta.5.uf2",
+      "size": 3189760,
+      "downloadCount": 0,
+      "contentType": "application/octet-stream",
+      "createdAt": "2025-09-30T16:21:04Z"
     }
   ]
 };

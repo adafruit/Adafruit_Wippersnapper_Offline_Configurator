@@ -709,6 +709,26 @@ window.jsonComponentsObject = {
         ]
       },
       {
+        "id": "as5600",
+        "displayName": "AS5600 Magnetic Angle",
+        "name": "as5600",
+        "description": "Magnetic angle (0-359) I2C sensor with 0.1° precision and 0.4° accuracy",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Angle",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/as5600/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/6357",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-as5600-magnetic-angle-sensor",
+        "address": "0x36",
+        "addresses": [
+          "0x36"
+        ]
+      },
+      {
         "id": "ina228",
         "displayName": "INA228",
         "name": "ina228",
@@ -727,6 +747,30 @@ window.jsonComponentsObject = {
           "0x41",
           "0x44",
           "0x45"
+        ]
+      },
+      {
+        "id": "qmc5883p",
+        "displayName": "QMC5883P",
+        "name": "qmc5883p",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Magnitude (vectorless gauss)",
+            "sensorType": "raw"
+          },
+          {
+            "displayName": "Magnetic Field (uT)",
+            "sensorType": "magnetic-field"
+          }
+        ],
+        "image": "https://cdn-shop.adafruit.com/640x480/6388-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/6388",
+        "documentationUrl": "https://learn.adafruit.com/adafruit-qmc5883p-triple-axis-magnetometer",
+        "address": "0x2C",
+        "addresses": [
+          "0x2C"
         ]
       },
       {
@@ -1078,6 +1122,39 @@ window.jsonComponentsObject = {
         ]
       },
       {
+        "id": "mlx90632d_ext",
+        "displayName": "MLX90632 (Extended Mode)",
+        "name": "mlx90632d_ext",
+        "description": "Non-contact far-infrared temperature sensor (extended range + lower accuracy)",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Ambient Temperature (°C)",
+            "sensorType": "ambient-temp"
+          },
+          {
+            "displayName": "Ambient Temperature (°F)",
+            "sensorType": "ambient-temp-fahrenheit"
+          },
+          {
+            "displayName": "Measured Object Temp (°C)",
+            "sensorType": "object-temp"
+          },
+          {
+            "displayName": "Measured Object Temp (°F)",
+            "sensorType": "object-temp-fahrenheit"
+          }
+        ],
+        "image": "https://cdn-shop.adafruit.com/640x480/6403-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/6403",
+        "documentationUrl": "https://cdn-shop.adafruit.com/product-files/6403/MLX90632-Datasheet-Melexis.PDF",
+        "address": "0x3A",
+        "addresses": [
+          "0x3A",
+          "0x3B"
+        ]
+      },
+      {
         "id": "bh1750",
         "displayName": "BH1750",
         "name": "bh1750",
@@ -1306,6 +1383,39 @@ window.jsonComponentsObject = {
         "address": "0x69",
         "addresses": [
           "0x69"
+        ]
+      },
+      {
+        "id": "mlx90632d_med",
+        "displayName": "MLX90632",
+        "name": "mlx90632d_med",
+        "description": "Non-contact far-infrared temperature sensor (medical range + higher accuracy).",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Ambient Temperature (°C)",
+            "sensorType": "ambient-temp"
+          },
+          {
+            "displayName": "Ambient Temperature (°F)",
+            "sensorType": "ambient-temp-fahrenheit"
+          },
+          {
+            "displayName": "Measured Object Temp (°C)",
+            "sensorType": "object-temp"
+          },
+          {
+            "displayName": "Measured Object Temp (°F)",
+            "sensorType": "object-temp-fahrenheit"
+          }
+        ],
+        "image": "https://cdn-shop.adafruit.com/640x480/6403-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/6403",
+        "documentationUrl": "https://cdn-shop.adafruit.com/product-files/6403/MLX90632-Datasheet-Melexis.PDF",
+        "address": "0x3A",
+        "addresses": [
+          "0x3A",
+          "0x3B"
         ]
       },
       {
@@ -1691,6 +1801,39 @@ window.jsonComponentsObject = {
         "addresses": [
           "0x77",
           "0x76"
+        ]
+      },
+      {
+        "id": "mlx90632b",
+        "displayName": "MLX90632-B (Standard)",
+        "name": "mlx90632b",
+        "description": "Non-contact far-infrared temperature sensor (standard range + accuracy)",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Ambient Temperature (°C)",
+            "sensorType": "ambient-temp"
+          },
+          {
+            "displayName": "Ambient Temperature (°F)",
+            "sensorType": "ambient-temp-fahrenheit"
+          },
+          {
+            "displayName": "Measured Object Temp (°C)",
+            "sensorType": "object-temp"
+          },
+          {
+            "displayName": "Measured Object Temp (°F)",
+            "sensorType": "object-temp-fahrenheit"
+          }
+        ],
+        "image": "components/i2c/mlx90632b/image.jpg",
+        "productUrl": "https://www.digikey.com/en/products/detail/melexis-technologies-nv/MLX90632SLD-BCB-000-RE/8259656",
+        "documentationUrl": "https://cdn-shop.adafruit.com/product-files/6403/MLX90632-Datasheet-Melexis.PDF",
+        "address": "0x3A",
+        "addresses": [
+          "0x3A",
+          "0x3B"
         ]
       },
       {
