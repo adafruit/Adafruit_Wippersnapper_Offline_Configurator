@@ -1,4 +1,4 @@
-// Auto-generated on 2025-11-04 00:20:19
+// Auto-generated on 2025-11-05 00:20:47
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
@@ -11,7 +11,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
       "size": 3088896,
-      "downloadCount": 1,
+      "downloadCount": 2,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
