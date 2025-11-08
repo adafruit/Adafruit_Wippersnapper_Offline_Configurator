@@ -225,7 +225,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://cdn-shop.adafruit.com/640x480/158-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/158-02.jpg",
         "productUrl": "https://www.adafruit.com/product/158",
         "documentationUrl": "https://www.melexis.com/en/product/us5881/unipolar-hall-effect-switch-low-sensitivity",
         "componentAPI": "digitalio"
