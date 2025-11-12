@@ -1,4 +1,4 @@
-// Auto-generated on 2025-11-11 00:21:01
+// Auto-generated on 2025-11-12 00:20:20
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
@@ -83,7 +83,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
       "size": 3033600,
-      "downloadCount": 2,
+      "downloadCount": 3,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
@@ -147,7 +147,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.xiao_esp32s3.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.xiao_esp32s3.1.0.0-offline-beta.5.uf2",
       "size": 3189760,
-      "downloadCount": 2,
+      "downloadCount": 3,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     }
