@@ -53,7 +53,7 @@ const companionBoardConfigs = {
         extras: 'SD Card',
         productURL: 'https://www.adafruit.com/product/2922',
         documentationURL: 'https://learn.adafruit.com/adafruit-adalogger-featherwing',
-        image: 'https://cdn-shop.adafruit.com/640x480/2922-06.jpg'
+        image: 'https://cdn-shop.adafruit.com/640x480/2922-11.jpg'
     },
     'datalogger-m0': {
         rtc: 'PCF8523',
@@ -77,7 +77,7 @@ const companionBoardConfigs = {
         extras: 'SD Card, STEMMA QT',
         productURL: 'https://www.adafruit.com/product/5703',
         documentationURL: 'https://learn.adafruit.com/adafruit-picowbell-adalogger-for-pico',
-        image: 'https://cdn-shop.adafruit.com/640x480/5703-00.jpg'
+        image: 'https://cdn-shop.adafruit.com/640x480/5703-06.jpg'
     },
     'datalogger-shield-revb': {
         rtc: 'PCF8523',
