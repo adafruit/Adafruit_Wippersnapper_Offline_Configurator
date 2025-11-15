@@ -2302,13 +2302,16 @@ function importConfigObject(config) {
                     document.getElementById('add-sd-card').checked = true;
                     const event = new Event('change');
                     document.getElementById('add-sd-card').dispatchEvent(event);
-
-                    const sdPinSelect = document.getElementById('sd-cs-pin-select');
-                    if (sdPinSelect) {
-                        sdPinSelect.value = appState.pendingSDCardPin;
-                        appState.sdCardCS = appState.pendingSDCardPin;
-                        appState.usedPins.add(appState.pendingSDCardPin);
-                    }
+                    setTimeout(() => {
+                        const sdPinSelect = document.getElementById('sd-cs-pin-select');
+                        if (sdPinSelect) {
+                            sdPinSelect.value = appState.pendingSDCardPin;
+                            appState.sdCardCS = appState.pendingSDCardPin;
+                            appState.usedPins.add(appState.pendingSDCardPin);
+                        } else {
+                            console.error('SD CS pin select HTML element not found during import. Pending SD Card Chip Select GPIO pin:', appState.pendingSDCardPin);
+                        }
+                    }, 100);
 
                     // Show SD card section
                     document.getElementById('sd-missing').classList.add('hidden');
