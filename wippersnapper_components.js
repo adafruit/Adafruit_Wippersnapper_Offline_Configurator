@@ -1163,7 +1163,7 @@ window.jsonComponentsObject = {
         "dataTypes": [
           "light"
         ],
-        "image": "https://cdn-shop.adafruit.com/640x480/4681-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4681-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4681",
         "documentationUrl": "https://learn.adafruit.com/adafruit-bh1750-ambient-light-sensor",
         "address": "0x23",
