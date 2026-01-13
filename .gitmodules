@@ -1,6 +1,7 @@
 [submodule "Wippersnapper_Boards"]
 	path = Wippersnapper_Boards
 	url = https://github.com/adafruit/Wippersnapper_Boards
+	branch = offline-mode
 [submodule "Wippersnapper_Components"]
 	path = Wippersnapper_Components
 	url = https://github.com/adafruit/Wippersnapper_Components
