@@ -22,7 +22,18 @@ const appState = {
     i2cMultiplexers: [],
     selectedComponents: [],
     usedPins: new Set(),
-    nextComponentId: 1
+    nextComponentId: 1,
+
+    // Sleep configuration
+    sleepEnabled: false,
+    sleepLock: true,
+    sleepMode: 'deep',
+    sleepWakeupType: 'timer',
+    sleepRunDuration: 60,
+    sleepTimerDuration: 300,
+    sleepPinName: '',
+    sleepPinLevel: false,
+    sleepPinPull: false
 };
 
 /**
