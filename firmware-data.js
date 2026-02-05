@@ -1,4 +1,4 @@
-// Auto-generated on 2026-02-04 00:25:25
+// Auto-generated on 2026-02-05 00:28:30
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
@@ -11,7 +11,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.esp32s3_devkitc_1_n8.1.0.0-offline-beta.5.uf2",
       "size": 3088896,
-      "downloadCount": 2,
+      "downloadCount": 4,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
@@ -43,7 +43,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.feather_esp32s3.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3.1.0.0-offline-beta.5.uf2",
       "size": 3088896,
-      "downloadCount": 2,
+      "downloadCount": 3,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
@@ -59,7 +59,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_esp32s3_reverse_tft.1.0.0-offline-beta.5.uf2",
       "size": 3094528,
-      "downloadCount": 2,
+      "downloadCount": 3,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
@@ -83,7 +83,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metroesp32s2.1.0.0-offline-beta.5.uf2",
       "size": 3033600,
-      "downloadCount": 3,
+      "downloadCount": 4,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
