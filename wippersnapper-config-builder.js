@@ -209,7 +209,18 @@ if (typeof appState === 'undefined') {
             uart: []
         },
         boardsData: {},
-        isImporting: false
+        isImporting: false,
+
+        // Sleep configuration
+        sleepEnabled: false,
+        sleepLock: true,
+        sleepMode: 'deep',
+        sleepWakeupType: 'timer',
+        sleepRunDuration: 60,
+        sleepTimerDuration: 300,
+        sleepPinName: '',
+        sleepPinLevel: false,
+        sleepPinPull: false
     };
 }
 
@@ -321,6 +332,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();
+
+        // Update sleep pin dropdown with new board's pins
+        populateSleepPinSelect();
 
         convertComponentsDataToConfig();
 
@@ -471,6 +485,60 @@ document.addEventListener('DOMContentLoaded', function() {
         const value = parseFloat(this.value);
         appState.statusLEDBrightness = value;
         document.getElementById('brightness-value').textContent = value.toFixed(2);
+    });
+
+    // Sleep mode configuration handlers
+    document.getElementById('sleep-enabled').addEventListener('change', function() {
+        appState.sleepEnabled = this.checked;
+        if (this.checked) {
+            document.getElementById('sleep-options').classList.remove('hidden');
+            // Ensure correct wakeup UI is showing based on current selection
+            if (appState.sleepWakeupType === 'timer') {
+                document.getElementById('sleep-timer-config').classList.remove('hidden');
+                document.getElementById('sleep-pin-config').classList.add('hidden');
+            } else {
+                document.getElementById('sleep-timer-config').classList.add('hidden');
+                document.getElementById('sleep-pin-config').classList.remove('hidden');
+            }
+        } else {
+            document.getElementById('sleep-options').classList.add('hidden');
+        }
+    });
+
+    document.getElementById('sleep-mode').addEventListener('change', function() {
+        appState.sleepMode = this.value;
+    });
+
+    document.getElementById('sleep-wakeup-type').addEventListener('change', function() {
+        appState.sleepWakeupType = this.value;
+        if (this.value === 'timer') {
+            document.getElementById('sleep-timer-config').classList.remove('hidden');
+            document.getElementById('sleep-pin-config').classList.add('hidden');
+        } else {
+            document.getElementById('sleep-timer-config').classList.add('hidden');
+            document.getElementById('sleep-pin-config').classList.remove('hidden');
+            populateSleepPinSelect();
+        }
+    });
+
+    document.getElementById('sleep-timer-duration').addEventListener('input', function() {
+        appState.sleepTimerDuration = parseInt(this.value);
+    });
+
+    document.getElementById('sleep-run-duration').addEventListener('input', function() {
+        appState.sleepRunDuration = parseInt(this.value);
+    });
+
+    document.getElementById('sleep-pin-name').addEventListener('change', function() {
+        appState.sleepPinName = this.value;
+    });
+
+    document.getElementById('sleep-pin-level').addEventListener('change', function() {
+        appState.sleepPinLevel = this.checked;
+    });
+
+    document.getElementById('sleep-pin-pull').addEventListener('change', function() {
+        appState.sleepPinPull = this.checked;
     });
 
     // Add additional I2C bus checkbox handler
@@ -867,6 +935,26 @@ function populatePinsLists() {
 
         SDAPinsList.appendChild(pinElem);
     });
+}
+
+function populateSleepPinSelect() {
+    if (!appState.selectedBoard) return;
+
+    const sleepPinSelect = document.getElementById('sleep-pin-name');
+    sleepPinSelect.innerHTML = '<option value="">-- Select Pin --</option>';
+
+    const pins = appState.selectedBoard.pins;
+    pins.forEach(pin => {
+        const option = document.createElement('option');
+        option.value = pin.displayName;
+        option.textContent = `${pin.displayName} [Pin ${pin.number}]`;
+        sleepPinSelect.appendChild(option);
+    });
+
+    // Restore previously selected pin if available
+    if (appState.sleepPinName) {
+        sleepPinSelect.value = appState.sleepPinName;
+    }
 }
 
 function updateI2CBusOptions() {
@@ -1976,6 +2064,30 @@ function generateConfiguration() {
         config.exportedFromDevice.rtc = appState.rtcType;
     }
 
+    // Add sleep configuration if enabled
+    if (appState.sleepEnabled) {
+        const sleepConfig = {
+            lock: appState.sleepLock,
+            mode: appState.sleepMode,
+            runDuration: appState.sleepRunDuration
+        };
+
+        // Add wakeup configuration based on type
+        if (appState.sleepWakeupType === 'timer') {
+            sleepConfig.timerConfig = {
+                duration: appState.sleepTimerDuration
+            };
+        } else if (appState.sleepWakeupType === 'pin' && appState.sleepPinName) {
+            sleepConfig.pinConfig = {
+                name: appState.sleepPinName,
+                level: appState.sleepPinLevel,
+                pull: appState.sleepPinPull
+            };
+        }
+
+        config.sleepConfig = [sleepConfig];
+    }
+
     // Add components
     appState.selectedComponents.forEach(component => {
         // Create a clean component object without the instanceId
@@ -2107,6 +2219,17 @@ function resetAppState() {
     appState.nextComponentId = 1;
     appState.isImporting = false;
 
+    // Reset sleep configuration
+    appState.sleepEnabled = false;
+    appState.sleepLock = true;
+    appState.sleepMode = 'deep';
+    appState.sleepWakeupType = 'timer';
+    appState.sleepRunDuration = 60;
+    appState.sleepTimerDuration = 300;
+    appState.sleepPinName = '';
+    appState.sleepPinLevel = false;
+    appState.sleepPinPull = false;
+
     // Reset UI elements
     document.getElementById('board-select').value = '';
     document.getElementById('companion-board-select').value = '';
@@ -2114,6 +2237,19 @@ function resetAppState() {
     document.getElementById('brightness-value').textContent = '0.5';
     document.getElementById('add-sd-card').checked = false;
     document.getElementById('add-i2c-bus').checked = false;
+
+    // Reset sleep UI elements
+    document.getElementById('sleep-enabled').checked = false;
+    document.getElementById('sleep-options').classList.add('hidden');
+    document.getElementById('sleep-mode').value = 'deep';
+    document.getElementById('sleep-wakeup-type').value = 'timer';
+    document.getElementById('sleep-run-duration').value = 60;
+    document.getElementById('sleep-timer-duration').value = 300;
+    document.getElementById('sleep-pin-name').value = '';
+    document.getElementById('sleep-pin-level').checked = false;
+    document.getElementById('sleep-pin-pull').checked = false;
+    document.getElementById('sleep-timer-config').classList.remove('hidden');
+    document.getElementById('sleep-pin-config').classList.add('hidden');
 
     // Hide sections
     hideSubsequentSections();
@@ -2278,6 +2414,50 @@ function importConfigObject(config) {
         document.getElementById('brightness-value').textContent = deviceConfig.statusLEDBrightness;
     }
 
+    // Import sleep configuration
+    if (config.sleepConfig && Array.isArray(config.sleepConfig) && config.sleepConfig.length > 0) {
+        const sleepCfg = config.sleepConfig[0];
+
+        appState.sleepEnabled = true;
+        appState.sleepLock = sleepCfg.lock !== undefined ? sleepCfg.lock : true;
+        appState.sleepMode = sleepCfg.mode || 'deep';
+        appState.sleepRunDuration = sleepCfg.runDuration || 60;
+
+        // Update UI
+        document.getElementById('sleep-enabled').checked = true;
+        document.getElementById('sleep-options').classList.remove('hidden');
+        document.getElementById('sleep-mode').value = appState.sleepMode;
+        document.getElementById('sleep-run-duration').value = appState.sleepRunDuration;
+
+        // Import wakeup configuration
+        if (sleepCfg.timerConfig) {
+            appState.sleepWakeupType = 'timer';
+            appState.sleepTimerDuration = sleepCfg.timerConfig.duration || 300;
+            document.getElementById('sleep-wakeup-type').value = 'timer';
+            document.getElementById('sleep-timer-duration').value = appState.sleepTimerDuration;
+            document.getElementById('sleep-timer-config').classList.remove('hidden');
+            document.getElementById('sleep-pin-config').classList.add('hidden');
+        } else if (sleepCfg.pinConfig) {
+            appState.sleepWakeupType = 'pin';
+            appState.sleepPinName = sleepCfg.pinConfig.name || '';
+            appState.sleepPinLevel = sleepCfg.pinConfig.level || false;
+            appState.sleepPinPull = sleepCfg.pinConfig.pull || false;
+            document.getElementById('sleep-wakeup-type').value = 'pin';
+            document.getElementById('sleep-pin-level').checked = appState.sleepPinLevel;
+            document.getElementById('sleep-pin-pull').checked = appState.sleepPinPull;
+            document.getElementById('sleep-timer-config').classList.add('hidden');
+            document.getElementById('sleep-pin-config').classList.remove('hidden');
+
+            // Pin select will be populated when board is selected
+            appState.pendingSleepPin = appState.sleepPinName;
+        }
+    } else {
+        // Ensure sleep mode is disabled if not in config
+        appState.sleepEnabled = false;
+        document.getElementById('sleep-enabled').checked = false;
+        document.getElementById('sleep-options').classList.add('hidden');
+    }
+
     // Store components for later use
     appState.pendingComponents = [];
 
@@ -2330,6 +2510,17 @@ function importConfigObject(config) {
                 document.getElementById('rtc-missing').classList.add('hidden');
                 document.getElementById('rtc-present').classList.remove('hidden');
                 document.getElementById('rtc-type').textContent = appState.pendingRTC;
+            }
+
+            // Process pending sleep pin
+            if (appState.pendingSleepPin) {
+                setTimeout(() => {
+                    populateSleepPinSelect();
+                    const sleepPinSelect = document.getElementById('sleep-pin-name');
+                    if (sleepPinSelect) {
+                        sleepPinSelect.value = appState.pendingSleepPin;
+                    }
+                }, 200);
             }
 
             // Process pending components
