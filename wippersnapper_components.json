@@ -348,7 +348,7 @@
             "sensorType": "raw"
           }
         ],
-        "image": null,
+        "image": "https://cdn-shop.adafruit.com/640x480/5425-02.jpg",
         "productUrl": "https://www.adafruit.com/product/5425",
         "documentationUrl": "https://learn.adafruit.com/adafruit-vl53l4cx-time-of-flight-distance-sensor",
         "address": "0x29",
