@@ -87,7 +87,7 @@
         "description": "Passive Infra-Red (PIR) motion sensor for detecting presence and movement through infrared thermal changes",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://cdn-shop.adafruit.com/640x480/189-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/189-04.jpg",
         "productUrl": "https://www.adafruit.com/product/189",
         "documentationUrl": "https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/overview",
         "componentAPI": "digitalio"
@@ -2215,7 +2215,7 @@
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://cdn-shop.adafruit.com/640x480/302-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/302-02.jpg",
         "productUrl": "https://www.adafruit.com/product/302",
         "documentationUrl": "https://learn.adafruit.com/adafruit-arduino-lesson-3-rgb-leds/overview"
       },
