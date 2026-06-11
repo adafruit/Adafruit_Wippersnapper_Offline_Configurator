@@ -1,4 +1,4 @@
-// Auto-generated on 2026-06-10 00:53:32
+// Auto-generated on 2026-06-11 00:58:52
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
