@@ -1,4 +1,4 @@
-// Auto-generated on 2026-07-16 00:33:23
+// Auto-generated on 2026-07-17 00:34:59
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
@@ -75,7 +75,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.5.uf2",
       "size": 890368,
-      "downloadCount": 5,
+      "downloadCount": 7,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
