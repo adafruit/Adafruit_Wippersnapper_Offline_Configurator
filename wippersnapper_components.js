@@ -1306,7 +1306,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://cdn-shop.adafruit.com/640x480/5064-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5064-04.jpg",
         "productUrl": "https://www.adafruit.com/product/5064",
         "documentationUrl": "https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout",
         "address": "0x44",
