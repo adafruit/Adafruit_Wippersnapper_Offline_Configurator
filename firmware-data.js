@@ -1,4 +1,4 @@
-// Auto-generated on 2026-08-18 00:12:53
+// Auto-generated on 2026-08-19 00:15:10
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.5",
@@ -99,7 +99,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.5/wippersnapper.metro_rp2350_tinyusb.1.0.0-offline-beta.5.uf2",
       "size": 899072,
-      "downloadCount": 5,
+      "downloadCount": 6,
       "contentType": "application/octet-stream",
       "createdAt": "2025-09-30T16:21:04Z"
     },
