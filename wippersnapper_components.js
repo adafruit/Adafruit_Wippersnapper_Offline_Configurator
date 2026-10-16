@@ -138,7 +138,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/189-04.jpg",
         "productUrl": "https://www.adafruit.com/product/189",
         "documentationUrl": "https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/overview",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "push_button",
@@ -150,7 +150,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/367-01.jpg",
         "productUrl": "https://www.adafruit.com/product/367",
         "documentationUrl": "https://learn.adafruit.com/adafruit-arduino-lesson-6-digital-inputs?view=all",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "simple_soil_sensor",
@@ -161,7 +161,7 @@ window.jsonComponentsObject = {
         "dataTypes": [],
         "image": "https://cdn-shop.adafruit.com/640x480/6362-00.jpg",
         "productUrl": "https://www.adafruit.com/product/6362",
-        "componentAPI": "analogio"
+        "componentAPI": "analog"
       },
       {
         "id": "etape_liquid_level_sensor",
@@ -173,7 +173,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/product-videos/640x480/2656-03.jpg",
         "productUrl": "https://www.adafruit.com/product/2656",
         "documentationUrl": "https://cdn-shop.adafruit.com/product-files/2656/Standard_eTape_Datasheet.pdf",
-        "componentAPI": "analogio"
+        "componentAPI": "analog"
       },
       {
         "id": "reed_switch",
@@ -185,7 +185,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/375-01.jpg",
         "productUrl": "https://www.adafruit.com/product/375",
         "documentationUrl": "https://learn.adafruit.com/no-code-iot-door-alarm-with-wippersnapper",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "hall_effect_sensor",
@@ -197,7 +197,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/158-02.jpg",
         "productUrl": "https://www.adafruit.com/product/158",
         "documentationUrl": "https://www.melexis.com/en/product/us5881/unipolar-hall-effect-switch-low-sensitivity",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "potentiometer",
@@ -209,7 +209,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/356-03.jpg",
         "productUrl": "https://www.adafruit.com/product/356",
         "documentationUrl": "https://learn.adafruit.com/make-it-change-potentiometers",
-        "componentAPI": "analogio"
+        "componentAPI": "analog"
       },
       {
         "id": "light_sensor",
@@ -221,7 +221,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/161-00.jpg",
         "productUrl": "https://www.adafruit.com/product/161",
         "documentationUrl": "https://learn.adafruit.com/photocells",
-        "componentAPI": "analogio"
+        "componentAPI": "analog"
       },
       {
         "id": "beam_break_sensor",
@@ -233,7 +233,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/2168-04.jpg",
         "productUrl": "https://www.adafruit.com/product/2168",
         "documentationUrl": "https://learn.adafruit.com/ir-breakbeam-sensors",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "tctr1000",
@@ -245,7 +245,7 @@ window.jsonComponentsObject = {
         "image": "components/pin/tctr1000/image.jpg",
         "productUrl": "https://www.adafruit.com/product/5913",
         "documentationUrl": "https://learn.adafruit.com/adafruit-stemma-reflective-photo-interrupt-sensor",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "water_sensor",
@@ -257,7 +257,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4965-03.jpg",
         "productUrl": "https://www.adafruit.com/product/4965",
         "documentationUrl": "https://cdn-shop.adafruit.com/product-files/4965/Datasheet.pdf",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "flat_vibration_switch",
@@ -268,7 +268,7 @@ window.jsonComponentsObject = {
         "dataTypes": [],
         "image": "https://cdn-shop.adafruit.com/640x480/4081-00.jpg",
         "productUrl": "https://www.adafruit.com/product/4081",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       },
       {
         "id": "analog_pin",
@@ -278,7 +278,7 @@ window.jsonComponentsObject = {
         "category": "pin",
         "dataTypes": [],
         "image": "components/pin/analog_pin/image.png",
-        "componentAPI": "analogio"
+        "componentAPI": "analog"
       },
       {
         "id": "toggle_switch",
@@ -290,7 +290,7 @@ window.jsonComponentsObject = {
         "image": "https://cdn-shop.adafruit.com/640x480/3221-01.jpg",
         "productUrl": "https://www.adafruit.com/product/3221",
         "documentationUrl": "https://learn.adafruit.com/make-it-switch",
-        "componentAPI": "digitalio"
+        "componentAPI": "digital"
       }
     ],
     "pwm": [

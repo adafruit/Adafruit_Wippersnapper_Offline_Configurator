@@ -1649,7 +1649,7 @@ function saveModalData() {
             alert('Please select a pin for the DS18x20 sensor.');
             return false;
         }
-        componentConfig.pinName = `D${pin}`;
+        componentConfig.pin = `D${pin}`;
         componentConfig.sensorResolution = parseInt(resolution);
 
         // Add data types
@@ -1677,7 +1677,7 @@ function saveModalData() {
             alert('Please select a pin for the component.');
             return false;
         }
-        componentConfig.pinName = `D${pin}`;
+        componentConfig.pin = `D${pin}`;
 
         // Mark pin as used
         appState.usedPins.add(parseInt(pin));
@@ -1690,7 +1690,7 @@ function saveModalData() {
         }
         const pixelCount = document.getElementById('modal-pixel-count').value;
 
-        componentConfig.pinName = `D${pin}`;
+        componentConfig.pin = `D${pin}`;
         componentConfig.numPixels = parseInt(pixelCount);
 
         // Mark pin as used
@@ -1828,7 +1828,7 @@ function updateSelectedComponentsList() {
                 });
             }
         } else if (component.componentAPI === 'ds18x20') {
-            detailsText += `<br>Pin: ${component.pinName}`;
+            detailsText += `<br>Pin: ${component.pin || component.pinName}`;
             detailsText += `<br>Resolution: ${component.sensorResolution}-bit`;
 
             // Show sensor types
@@ -1843,9 +1843,9 @@ function updateSelectedComponentsList() {
                 detailsText += '<br>Data types: ' + sensorTypes.join(', ');
             }
         } else if (component.componentAPI === 'pin' || component.componentAPI === 'pwm' || component.componentAPI === 'servo') {
-            detailsText += `<br>Pin: ${component.pinName}`;
+            detailsText += `<br>Pin: ${component.pin || component.pinName}`;
         } else if (component.componentAPI === 'pixel') {
-            detailsText += `<br>Pin: ${component.pinName}`;
+            detailsText += `<br>Pin: ${component.pin || component.pinName}`;
             detailsText += `<br>Pixels: ${component.numPixels}`;
         } else if (component.componentAPI === 'uart') {
             detailsText += `<br>TX Pin: ${component.pinTx}, RX Pin: ${component.pinRx}`;
@@ -1895,8 +1895,8 @@ function removeComponent(instanceId) {
     const component = appState.selectedComponents[componentIndex];
 
     // Free up pins used by this component
-    if (component.pinName) {
-        const pinNumber = parseInt(component.pinName.replace('D', ''));
+    if (component.pin || component.pinName) {
+        const pinNumber = parseInt((component.pin || component.pinName).replace('D', ''));
         appState.usedPins.delete(pinNumber);
     }
 
@@ -2379,8 +2379,9 @@ function importConfigObject(config) {
                     appState.selectedComponents.push(componentConfig);
 
                     // Mark used pins
-                    if (component.pinName) {
-                        const pinNumber = parseInt(component.pinName.replace('D', ''));
+                    // "pinName" is the legacy key, still accepted when loading
+                    if (component.pin || component.pinName) {
+                        const pinNumber = parseInt((component.pin || component.pinName).replace('D', ''));
                         appState.usedPins.add(pinNumber);
                     }
 
