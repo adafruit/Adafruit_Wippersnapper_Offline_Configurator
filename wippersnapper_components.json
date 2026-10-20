@@ -2051,7 +2051,7 @@
             "sensorType": "unitless-percent"
           }
         ],
-        "image": "https://cdn-shop.adafruit.com/640x480/4712-07.jpg",
+        "image": null,
         "productUrl": "https://www.adafruit.com/product/4712",
         "documentationUrl": "https://learn.adafruit.com/adafruit-lc709203f-lipo-lipoly-battery-monitor",
         "address": "0x0B",
