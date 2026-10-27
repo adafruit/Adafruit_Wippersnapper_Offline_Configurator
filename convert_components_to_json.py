@@ -134,9 +134,9 @@ def convert_components_to_json():
                         else:
                             component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
                 
-                # Handle pin category (MODE becomes componentAPI value)
+                # Handle pin category (MODE becomes componentAPI value: "digital" / "analog")
                 if category == "pin":
-                    component_info["componentAPI"] = component_data.get("mode", "digital").lower() + "io"
+                    component_info["componentAPI"] = component_data.get("mode", "digital").lower()
 
                 # Handle I2C-specific properties
                 if category == "i2c":
